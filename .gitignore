@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .secrets
 DS_Store
+archive
 
 # C extensions
 *.so
