@@ -1,0 +1,27 @@
+name: Mirror Repository
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for a complete mirror
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Mirror to Organization Repository
+        run: |
+          git remote add org_mirror https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/mahimailabs/azure-agent-currency-exchange.git
+          git push org_mirror --mirror --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
