@@ -68,7 +68,6 @@ module managedAzureAi 'modules/azure-ai-project.bicep' = if (shouldProvisionAzur
     accountName: generatedAzureAiAccountName
     projectName: generatedAzureAiProjectName
     enableHostedAgents: enableAzureAiHostedAgents
-    modelDeploymentName: azureAiModelDeploymentName
   }
 }
 
@@ -253,6 +252,9 @@ module azureAiRoleAssignment 'modules/azure-ai-role-assignment.bicep' = if (hasA
     azureAiAccountName: resolvedAzureAiAccountName
     principalId: agentappIdentity.properties.principalId
   }
+  dependsOn: shouldProvisionAzureAi ? [
+    managedAzureAi
+  ] : []
 }
 
 @description('Azure Container Apps ingress FQDN for the agent service.')

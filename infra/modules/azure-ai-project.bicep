@@ -15,9 +15,6 @@ param projectName string
 @description('Enable the Azure AI Agents capability host for hosted agents scenarios.')
 param enableHostedAgents bool = true
 
-@description('Model deployment name to create (e.g., gpt-4o-mini).')
-param modelDeploymentName string = ''
-
 resource aiAccount 'Microsoft.CognitiveServices/accounts@2025-06-01' = {
   name: accountName
   location: location
@@ -62,29 +59,7 @@ resource aiProject 'Microsoft.CognitiveServices/accounts/projects@2025-06-01' = 
   }
 }
 
-resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = if (modelDeploymentName != '') {
-  parent: aiAccount
-  name: modelDeploymentName
-  sku: {
-    name: 'Standard'
-    capacity: 10
-  }
-  properties: {
-    model: {
-      format: 'OpenAI'
-      name: 'gpt-4o-mini'
-      version: '2024-07-18'
-    }
-    versionUpgradeOption: 'OnceCurrentVersionExpired'
-    raiPolicyName: 'Microsoft.Default'
-  }
-  dependsOn: [
-    aiProject
-  ]
-}
-
 @description('Resource ID for the created Azure AI account.')
-
 output accountResourceId string = aiAccount.id
 
 @description('Resource ID for the created Azure AI Foundry project.')
