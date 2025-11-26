@@ -3,7 +3,7 @@ import gradio as gr
 import requests
 from contants import DEFAULT_CONVERSION_RATE
 
-API_URL = os.getenv("AZURE_API_URL").rstrip("/")
+API_URL = os.getenv("AZURE_API_URL")
 
 
 def static_response():
