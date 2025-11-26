@@ -1,6 +1,13 @@
 name: azure-agent-framework
 metadata:
   template: ms.agent-framework-containerapp
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: ./infra/hooks/deploy-model.sh
+      interactive: true
+      continueOnError: false
 services:
   agentapp:
     language: python
