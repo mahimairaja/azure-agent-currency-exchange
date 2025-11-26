@@ -73,6 +73,12 @@ Try it live on [Hugging Face Spaces](https://huggingface.co/spaces/mahimairaja/a
 
 ---
 
+## 📚 Architecture
+
+![Conversation Flow](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdrive.google.com/uc?id=1GlSfBru8BrYBvFnKRDFVTyLSxKNnKrxn)
+
+---
+
 ## 🛠️ Tech Stack
 
 | Component | Technology |
