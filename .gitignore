@@ -5,6 +5,11 @@ __pycache__/
 .secrets
 DS_Store
 archive
+.azure
+uv.lock
+
+# Workflows
+clone-to-org.yml
 
 # C extensions
 *.so
