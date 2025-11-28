@@ -203,3 +203,6 @@ Made with ❤️ by [Mahimai Raja](https://github.com/mahimairaja)
 
 
 <!-- GitAds-Verify: 5XZNXPE28NCPTDXZUYAZZWBUXF87EG62 -->
+
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=mahimairaja/azure-agent-currency-exchange@github)](https://gitads.dev/v1/ad-track?source=mahimairaja/azure-agent-currency-exchange@github)
